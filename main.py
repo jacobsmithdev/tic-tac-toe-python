@@ -23,4 +23,24 @@ def log_board():
         else:
             print('├───┼───┼───┤')
 
-log_board()
+
+def place_character(row, col, char):
+    if len(char) > 1:
+        char = char[0]
+
+    if not valid_coords(row, col):
+        return False
+    
+    if gameboard[row][col]:
+        return False
+
+    gameboard[row][col] = char
+    return True
+        
+
+def valid_coords(row, col):
+    if 0 < row > BOARD_SIZE - 1:
+        return False
+    if 0 < col > BOARD_SIZE - 1:
+        return False
+    return True
