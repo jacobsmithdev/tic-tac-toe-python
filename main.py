@@ -1,9 +1,7 @@
+BOARD_SIZE = 3
+
 # format board as [rows][cols]
-gameboard = [
-    [None, None, None],
-    [None, None, None],
-    [None, None, None],
-]
+gameboard = [[None] * BOARD_SIZE for n in range(BOARD_SIZE)]
 
 def log_board():
     print('Gameboard')
@@ -24,3 +22,5 @@ def log_board():
             print('└───┴───┴───┘')
         else:
             print('├───┼───┼───┤')
+
+log_board()
