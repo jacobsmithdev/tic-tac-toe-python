@@ -90,3 +90,11 @@ def winner_exists(active_player):
             return True
 
     return False
+
+
+def is_board_full():
+    for row in range(BOARD_SIZE):
+        for col in range(BOARD_SIZE):
+            if not gameboard[row][col]:
+                return False
+    return True
