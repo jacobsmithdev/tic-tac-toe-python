@@ -43,3 +43,22 @@ def valid_coords(row, col):
     if 0 < col > BOARD_SIZE - 1:
         return False
     return True
+
+
+def play_move(char):
+    while True:
+        log_board()
+        coords = input("Enter 'row, col' between 0-2 (e.g., '1, 2', '0, 0'):\n")
+
+        try:
+            row, col = coords.split(",")
+            row = int(row)
+            col = int(col)
+
+            if place_character(row, col, char):
+                return True
+            else:
+                raise Exception()
+
+        except:
+            print("Invalid input, please try again.")
