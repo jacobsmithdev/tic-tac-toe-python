@@ -98,3 +98,24 @@ def is_board_full():
             if not gameboard[row][col]:
                 return False
     return True
+
+
+def play_game(p1, p2):
+
+    active_player = p1
+    while True:
+        play_move(active_player)
+        print(active_player)
+        if winner_exists(active_player):
+            log_board()
+            print(f"{active_player} wins!")
+            return True
+        active_player = p1 if active_player == p2 else p2
+
+        if is_board_full():
+            log_board()
+            print("tie!")
+            return True
+
+
+play_game("x", "o")
