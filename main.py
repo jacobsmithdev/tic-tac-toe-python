@@ -62,3 +62,31 @@ def play_move(char):
 
         except:
             print("Invalid input, please try again.")
+
+
+def winner_exists(active_player):
+    win_conditions_rows = [
+        [[0, 0], [0, 1], [0, 2]],
+        [[1, 0], [1, 1], [1, 2]],
+        [[2, 0], [2, 1], [2, 2]],
+    ]
+
+    win_conditions_cols = [
+        [[0, 0], [1, 0], [2, 0]],
+        [[0, 1], [1, 1], [2, 1]],
+        [[0, 2], [1, 2], [2, 2]],
+    ]
+    win_conditions_diagonals = [
+        [[0, 0], [1, 1], [2, 2]],
+        [[0, 2], [1, 1], [2, 0]],
+    ]
+
+    win_conditions = (
+        win_conditions_rows + win_conditions_cols + win_conditions_diagonals
+    )
+
+    for condition in win_conditions:
+        if all(gameboard[row][col] == active_player for row, col in condition):
+            return True
+
+    return False
